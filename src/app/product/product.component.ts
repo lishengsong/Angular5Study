@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
+  hero: Hero;
   constructor() { }
 
   ngOnInit() {
   }
-
 }
+
+export class Hero {
+  id: number;
+  name: string;
+}
+

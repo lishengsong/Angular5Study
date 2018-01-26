@@ -1,4 +1,4 @@
- ##jquery
+##jquery
  按装jquery的类型描述文件：npm install @types/jquery --save-dev
    装bootstrap: npm install @types/bootstrap --save-dev
 ##安装angular4.0以上
@@ -12,3 +12,44 @@
   cd my-app
   ng serve --open
   此时，浏览器会打开http://localhost:4200/，即可看到应用；
+  还可以加上参数：
+  ng serve --open
+  
+  使用--open（或-o）参数可以自动打开浏览器并访问http://localhost:4200/
+新建组件
+ng g component component-name
+
+g是generate的缩写 还可以创建其他文件：
+// 创建类  
+
+ng g class class-name   
+
+
+
+// 创建指令  
+
+ng g directive directive-name   
+
+
+
+// 创建模块  
+
+ng g module module-name   
+
+
+
+// 创建管道  
+
+ng g pipe pipe-name   
+
+
+
+// 创建服务  
+
+ng g service service-name
+
+启动测试
+ng test
+
+编译项目
+ng build
