@@ -21,31 +21,14 @@ ng g component component-name
 
 g是generate的缩写 还可以创建其他文件：
 // 创建类  
-
 ng g class class-name   
-
-
-
 // 创建指令  
-
 ng g directive directive-name   
-
-
-
 // 创建模块  
-
 ng g module module-name   
-
-
-
 // 创建管道  
-
 ng g pipe pipe-name   
-
-
-
 // 创建服务  
-
 ng g service service-name
 
 启动测试
@@ -53,3 +36,6 @@ ng test
 
 编译项目
 ng build
+
+
+学习指南：https://www.angular.cn/tutorial/toh-pt4

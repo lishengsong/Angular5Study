@@ -8,6 +8,9 @@ import { SearchComponent } from './search/search.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ProductComponent } from './product/product.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { ProductDetailComponent } from './product/product-detail.component';
+import {HeroService} from './service/hero.service';
 
 
 @NgModule({
@@ -17,12 +20,16 @@ import { FooterComponent } from './footer/footer.component';
     SearchComponent,
     CarouselComponent,
     ProductComponent,
-    FooterComponent
+    FooterComponent,
+    ProductDetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    HeroService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
