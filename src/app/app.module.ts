@@ -11,6 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { ProductDetailComponent } from './product/product-detail.component';
 import {HeroService} from './service/hero.service';
+import {RouterModule} from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -21,11 +23,27 @@ import {HeroService} from './service/hero.service';
     CarouselComponent,
     ProductComponent,
     FooterComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {
+        path: 'heroes',
+        component: ProductComponent
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
+      }
+    ])
   ],
   providers: [
     HeroService

@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Hero} from '../bean/hero.bean';
-import {HEROES} from '../data/mock-heroes';
+/*import {HEROES} from '../data/mock-heroes';*/
+import {HeroService} from '../service/hero.service';
 
 @Component({
   selector: 'app-product',
@@ -14,21 +15,29 @@ import {HEROES} from '../data/mock-heroes';
       <input [(ngModel)]="hero.name"/>
     </div>
     `,*/
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  providers: [HeroService]
 })
 
 
-export class ProductComponent  {
-
+export class ProductComponent implements OnInit {
  /* @Input() hero: Hero = {
     id: 1,
     name: 'Windstorm'
   };   /!*表示一个输入属性*!/*/
-  heroes = HEROES;
+  heroes: Hero[];
   selectedHero: Hero;
-  constructor() { }
+  constructor(private heroService: HeroService) { }
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+  ngOnInit(): void {
+    console.log('ngOnInit');
+    this.getHeroes();
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroesSlowly().then(heros => this.heroes = heros);
   }
 
 }
