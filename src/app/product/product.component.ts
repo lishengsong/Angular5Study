@@ -1,8 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Hero} from '../bean/hero.bean';
-/*import {HEROES} from '../data/mock-heroes';*/
 import {HeroService} from '../service/hero.service';
 
+/*import {HEROES} from '../data/mock-heroes';*/
+import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -16,7 +17,6 @@ import {HeroService} from '../service/hero.service';
     </div>
     `,*/
   styleUrls: ['./product.component.css'],
-  providers: [HeroService]
 })
 
 
@@ -37,7 +37,7 @@ export class ProductComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroService.getHeroesSlowly().then(heros => this.heroes = heros);
+    this.heroService.getHeroesSlowly().then(heros => this.heroes = heros.slice(1, 4));
   }
 
 }

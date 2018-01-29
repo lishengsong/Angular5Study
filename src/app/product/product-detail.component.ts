@@ -1,5 +1,8 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Hero} from '../bean/hero.bean';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {HeroService} from '../service/hero.service';
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-product-detail',
   template: `
@@ -12,14 +15,25 @@ import {Hero} from '../bean/hero.bean';
         <input [(ngModel)]="hero.name"/>
       </div>
     </div>
+    <button (click)="goBack()">Back</button>
     `
 })
 
-export class ProductDetailComponent  {
+export class ProductDetailComponent  implements OnInit {
+
 
   @Input() hero: Hero;  /*表示一个输入属性*/
 
+  constructor( private heroService: HeroService, private route: ActivatedRoute, private location: Location ) {}
+  ngOnInit(): void {
+    this.route.paramMap
+      .switchMap((params: ParamMap) => this.heroService.getHero(+params.get('id')))
+      .subscribe(herof => this.hero = herof);
+  }
 
+  goBack(): void {
+    this.location.back();
+  }
 }
 
 
