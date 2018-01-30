@@ -38,6 +38,7 @@ export class ProductComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroesSlowly().then(heros => this.heroes = heros.slice(1, 4));
+    this.heroService.getHeroes().then(data => console.log(JSON.stringify(data)));
   }
 
 }

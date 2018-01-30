@@ -30,7 +30,6 @@ export class ProductDetailComponent  implements OnInit {
       .switchMap((params: ParamMap) => this.heroService.getHero(+params.get('id')))
       .subscribe(herof => this.hero = herof);
   }
-
   goBack(): void {
     this.location.back();
   }
